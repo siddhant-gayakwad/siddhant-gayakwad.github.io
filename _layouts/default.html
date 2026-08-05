@@ -4,59 +4,43 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
-    <title>{{ page.title | default: site.title }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>{{ page.title | default: site.title }} · {{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
         <div class="brand">
-          <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-          <p class="site-tagline">{{ site.description }}</p>
+          <a href="{{ '/' | relative_url }}" class="prompt">
+            <span class="user">siddhant</span><span class="at">@</span><span class="host">devops</span><span class="colon">:~$</span>
+          </a>
         </div>
 
         <nav class="site-nav">
           {% for item in site.navigation %}
-            <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            <a class="nav-link{% if page.url == item.url %} is-active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
           {% endfor %}
-          <a class="btn btn-primary" href="{{ site.resume }}" target="_blank" rel="noopener">Download Resume</a>
+          <a class="btn btn-primary" href="{{ site.resume | relative_url }}" target="_blank" rel="noopener">↓ resume.pdf</a>
         </nav>
       </div>
     </header>
 
     <main class="site-main container">
-      <!-- Profile hero: aligned with headshot and meta -->
-      <section class="profile-hero">
-        <div class="profile-card">
-          <div class="profile-photo-wrapper">
-            <!-- Headshot image added -->
-            <img class="profile-photo" src="{{ '/assets/images/headshot.png' | relative_url }}" alt="Profile photo">
-          </div>
-
-          <div class="profile-meta">
-            <h2>{{ site.title }}</h2>
-            <p class="muted">DevOps Engineer • Cloud Native • CI/CD • Automation</p>
-            <p class="contact-list">
-              <strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a><br>
-              <strong>GitHub:</strong> <a href="{{ site.github }}" target="_blank">{{ site.github | replace: 'https://', '' }}</a> ·
-              <strong>LinkedIn:</strong> <a href="{{ site.linkedin }}" target="_blank">LinkedIn</a>
-            </p>
-
-            <div class="profile-cta">
-              <a class="btn btn-outline" href="{{ '/projects' | relative_url }}">View Projects</a>
-              <a class="btn btn-primary" href="{{ site.resume }}" target="_blank" rel="noopener">Resume (PDF)</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {{ content }}
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }} — Built with Jekyll</p>
+      <div class="container footer-inner">
+        <div class="footer-status">
+          <span class="dot"></span> build passing · last deploy {{ site.time | date: '%b %Y' }}
+        </div>
+        <div class="footer-links">
+          <a href="mailto:{{ site.email }}">email</a>
+          <a href="{{ site.github }}" target="_blank" rel="noopener">github</a>
+          <a href="{{ site.linkedin }}" target="_blank" rel="noopener">linkedin</a>
+        </div>
       </div>
     </footer>
   </body>

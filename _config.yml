@@ -1,8 +1,10 @@
 title: "Siddhant Gayakwad"
+role: "Junior DevOps Engineer"
 email: "siddhantgayakwad@gmail.com"
-description: "DevOps Engineer | AWS • Docker • Kubernetes • CI/CD"
+phone: "+91-9924510179"
+description: "DevOps Engineer building CI/CD pipelines and cloud-native infrastructure on AWS, Docker & Kubernetes."
 baseurl: ""
-url: "https://siddhant-gayakwad.github.io"
+url: "https://siddhantgayakwad.me"
 
 # Social links used in templates
 github: "https://github.com/siddhant-gayakwad"
@@ -12,13 +14,13 @@ resume: "/assets/resume/Resumes_Devops_2026.pdf"
 # Build settings
 markdown: kramdown
 
-# Navigation links (used in layout)
+# Navigation links (used in layout) — shown as file paths in the nav
 navigation:
-  - title: "Home"
+  - title: "~/home"
     url: "/"
-  - title: "About"
+  - title: "~/about"
     url: "/about"
-  - title: "Projects"
+  - title: "~/projects"
     url: "/projects"
-  - title: "Resume"
+  - title: "~/resume"
     url: "/resume"

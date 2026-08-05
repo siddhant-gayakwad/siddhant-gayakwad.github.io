@@ -4,17 +4,152 @@ title: Home
 ---
 
 <section class="hero">
-  <h1>{{ site.title }}</h1>
-  <p>DevOps Engineer | AWS • Docker • Kubernetes • CI/CD | Building Scalable Cloud Infrastructure</p>
-  <p><a class="btn" href="{{ '/projects' | relative_url }}">Projects</a></p>
+  <div>
+    <span class="hero-eyebrow"><span class="dot"></span> open to new opportunities</span>
+    <h1>Siddhant Gayakwad<br>builds the <span class="accent">pipeline</span><br>behind the product.</h1>
+    <p class="lede">
+      Junior DevOps Engineer at Techanek Technologies, Ahmedabad. I design CI/CD pipelines,
+      containerize services, and run them reliably on AWS &amp; Kubernetes — so releases ship
+      on schedule and stay up at 2am.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="{{ '/projects' | relative_url }}">View projects →</a>
+      <a class="btn btn-outline" href="{{ '/about' | relative_url }}">About me</a>
+    </div>
+  </div>
+
+  <div class="terminal" id="hero-terminal">
+    <div class="terminal-bar">
+      <span class="r"></span><span class="y"></span><span class="g"></span>
+      <span class="title">siddhant@devops — zsh</span>
+    </div>
+    <div class="terminal-body" id="terminal-output"></div>
+  </div>
 </section>
 
+<hr class="rule">
+
 <section class="section">
-  <h2>Highlighted Project</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Cloud Native Resource Monitoring Python App on Kubernetes</h3>
-      <p>This project builds a Cloud Native Resource Monitoring app with Python, Flask, and psutil to track CPU, memory, and disk usage. It’s Dockerized, pushed to Amazon ECR, and deployed on Amazon EKS for scalable, high-availability cloud deployment. Tools: Visual Studio 2024, Docker, AWS</p>
+  <div class="section-head">
+    <span class="section-tag">stack.yml</span>
+    <h2>What I work with</h2>
+  </div>
+  <div class="yaml-grid">
+    <div class="yaml-card">
+      <div class="line"><span class="yaml-key">cloud</span>:</div>
+      <div class="line"><span class="yaml-dash">-</span> <span class="yaml-val">AWS EC2, EKS, ECR, IAM, S3</span></div>
+    </div>
+    <div class="yaml-card">
+      <div class="line"><span class="yaml-key">containers</span>:</div>
+      <div class="line"><span class="yaml-dash">-</span> <span class="yaml-val">Docker, Docker Swarm</span></div>
+      <div class="line"><span class="yaml-dash">-</span> <span class="yaml-val">Kubernetes (EKS &amp; self-managed)</span></div>
+    </div>
+    <div class="yaml-card">
+      <div class="line"><span class="yaml-key">ci_cd</span>:</div>
+      <div class="line"><span class="yaml-dash">-</span> <span class="yaml-val">Jenkins (Groovy, cron, dynamic params)</span></div>
+      <div class="line"><span class="yaml-dash">-</span> <span class="yaml-val">Helm, Ingress, autoscaling</span></div>
+    </div>
+    <div class="yaml-card">
+      <div class="line"><span class="yaml-key">observability</span>:</div>
+      <div class="line"><span class="yaml-dash">-</span> <span class="yaml-val">Grafana dashboards</span></div>
+      <div class="line"><span class="yaml-dash">-</span> <span class="yaml-val">Production troubleshooting</span></div>
     </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="section-head">
+    <span class="section-tag">projects</span>
+    <h2>Recent work</h2>
+    <p class="section-desc">A few pipelines and platforms I've shipped or kept running.</p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-status"><span class="dot"></span> deployed · AWS EKS</div>
+      <h3>Cloud-Native Resource Monitor</h3>
+      <p>Flask + psutil app tracking CPU, memory, and disk in real time. Dockerized, pushed to ECR, and deployed on EKS for scalable, high-availability delivery.</p>
+      <div class="tag-row"><span class="tag">Python</span><span class="tag">Docker</span><span class="tag">EKS</span><span class="tag">ECR</span></div>
+    </div>
+    <div class="card">
+      <div class="card-status"><span class="dot"></span> deployed · Convasys</div>
+      <h3>Energy Monitoring Dashboards</h3>
+      <p>Deployed Keygen.sh licensing via Docker and built Grafana dashboards for real-time energy monitoring, alongside API testing for release confidence.</p>
+      <div class="tag-row"><span class="tag">Docker</span><span class="tag">Grafana</span><span class="tag">API Testing</span></div>
+    </div>
+    <div class="card">
+      <div class="card-status"><span class="dot warn"></span> migrated · Adopt NetTech</div>
+      <h3>Microservices → OpenShift Migration</h3>
+      <p>Migrated containerized microservices onto OpenShift, handled data migration, and built Grafana reporting while troubleshooting cluster issues.</p>
+      <div class="tag-row"><span class="tag">Docker</span><span class="tag">OpenShift</span><span class="tag">Grafana</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <span class="section-tag">certifications</span>
+    <h2>Verified</h2>
+  </div>
+  <div class="badge-row">
+    <span class="badge"><span class="dot"></span> AWS Certified Cloud Practitioner</span>
+    <span class="badge"><span class="dot"></span> AWS Academy Graduate</span>
+    <span class="badge"><span class="dot"></span> AWS Cloud Quest: Cloud Practitioner</span>
+    <span class="badge"><span class="dot"></span> AWS Cloud Quest: Generative AI Practitioner</span>
+    <span class="badge"><span class="dot warn"></span> AWS SAA-C03 — in progress</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var el = document.getElementById('terminal-output');
+  if(!el) return;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var lines = [
+    {t:'p', v:'$ whoami'},
+    {t:'o', v:'siddhant-gayakwad · Junior DevOps Engineer'},
+    {t:'p', v:'$ kubectl get status --watch'},
+    {t:'o', v:'devops-engineer   Running   uptime 99.9%'},
+    {t:'p', v:'$ ./deploy.sh --env=production'},
+    {t:'ok', v:'✓ build'},
+    {t:'ok', v:'✓ test'},
+    {t:'ok', v:'✓ deploy'},
+    {t:'muted', v:'deployment successful in 41s'}
+  ];
+
+  function lineHTML(cls, text){
+    if(cls === 'p') return '<span class="p">'+escapeHtml(text)+'</span>';
+    if(cls === 'ok') return '<span class="ok">'+escapeHtml(text)+'</span>';
+    if(cls === 'muted') return '<span class="muted">'+escapeHtml(text)+'</span>';
+    return '<span class="cmd">'+escapeHtml(text)+'</span>';
+  }
+  function escapeHtml(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  if(reduceMotion){
+    el.innerHTML = lines.map(function(l){ return lineHTML(l.t, l.v); }).join('<br>');
+    return;
+  }
+
+  var i = 0, j = 0, html = '';
+  function tick(){
+    if(i >= lines.length){
+      el.innerHTML = html + '<span class="cursor"></span>';
+      return;
+    }
+    var line = lines[i];
+    if(j <= line.v.length){
+      var partial = line.v.slice(0, j);
+      el.innerHTML = html + lineHTML(line.t, partial) + '<span class="cursor"></span>';
+      j++;
+      setTimeout(tick, line.t === 'p' ? 26 : 12);
+    } else {
+      html += lineHTML(line.t, line.v) + '<br>';
+      i++; j = 0;
+      setTimeout(tick, 220);
+    }
+  }
+  tick();
+})();
+</script>
