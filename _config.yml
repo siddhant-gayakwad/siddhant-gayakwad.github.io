@@ -21,4 +21,4 @@ navigation:
   - title: "Projects"
     url: "/projects"
   - title: "Resume"
-    url: "/assets/resume/Resumes_Devops_2026.pdf"
+    url: "/resume"
