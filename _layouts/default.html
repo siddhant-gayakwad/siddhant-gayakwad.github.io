@@ -23,9 +23,17 @@
           <a class="btn btn-primary" href="{{ site.resume }}" target="_blank" rel="noopener">Download Resume</a>
         </nav>
       </div>
+    </header>
 
-      <div class="container profile-hero">
+    <main class="site-main container">
+      <!-- Profile hero: aligned with headshot and meta -->
+      <section class="profile-hero">
         <div class="profile-card">
+          <div class="profile-photo-wrapper">
+            <!-- Headshot image added -->
+            <img class="profile-photo" src="{{ '/assets/images/headshot.png' | relative_url }}" alt="Profile photo">
+          </div>
+
           <div class="profile-meta">
             <h2>{{ site.title }}</h2>
             <p class="muted">DevOps Engineer • Cloud Native • CI/CD • Automation</p>
@@ -34,16 +42,15 @@
               <strong>GitHub:</strong> <a href="{{ site.github }}" target="_blank">{{ site.github | replace: 'https://', '' }}</a> ·
               <strong>LinkedIn:</strong> <a href="{{ site.linkedin }}" target="_blank">LinkedIn</a>
             </p>
-          </div>
-          <div class="profile-cta">
-            <a class="btn btn-outline" href="{{ '/projects' | relative_url }}">View Projects</a>
-            <a class="btn btn-primary" href="{{ site.resume }}" target="_blank" rel="noopener">Resume (PDF)</a>
+
+            <div class="profile-cta">
+              <a class="btn btn-outline" href="{{ '/projects' | relative_url }}">View Projects</a>
+              <a class="btn btn-primary" href="{{ site.resume }}" target="_blank" rel="noopener">Resume (PDF)</a>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </section>
 
-    <main class="site-main container">
       {{ content }}
     </main>
 
