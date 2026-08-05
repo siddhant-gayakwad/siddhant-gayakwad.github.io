@@ -1,12 +1,16 @@
 title: "Siddhant Gayakwad"
-email: ""
+email: "siddhantgayakwad@gmail.com"
 description: "DevOps Engineer | AWS • Docker • Kubernetes • CI/CD"
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: ""
 url: "https://siddhant-gayakwad.github.io"
+
+# Social links used in templates
+github: "https://github.com/siddhant-gayakwad"
+linkedin: "https://www.linkedin.com/in/siddhant-gayakwad-524524191/"
+resume: "/assets/resume/Resumes_Devops_2026.pdf"
 
 # Build settings
 markdown: kramdown
-theme: minima
 
 # Navigation links (used in layout)
 navigation:
@@ -16,3 +20,5 @@ navigation:
     url: "/about"
   - title: "Projects"
     url: "/projects"
+  - title: "Resume"
+    url: "/assets/resume/Resumes_Devops_2026.pdf"
