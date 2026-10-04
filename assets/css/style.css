@@ -402,3 +402,28 @@ a{color:var(--info);text-decoration:none}
   .showcase-card.secondary{transform:translate(14px,14px) scale(.95)}
   .showcase-card.tertiary{transform:translate(28px,28px) scale(.9)}
 }
+/* ---------- Full-screen video section system ---------- */
+.video-section{isolation:isolate;overflow:hidden}
+.video-section > *:not(.bg-media):not(.video-overlay){position:relative;z-index:2}
+.bg-media,.video-overlay{position:absolute;inset:0}
+.bg-media{z-index:0;background:
+  radial-gradient(circle at 70% 50%,rgba(121,184,255,.11),transparent 35%),
+  linear-gradient(120deg,#05080c,#0b1118 70%,#05080c)}
+.bg-video{width:100%;height:100%;display:block;object-fit:cover;object-position:center;filter:saturate(.65) contrast(1.05) brightness(.7);transform:scale(1.04);animation:video-drift 18s ease-in-out infinite alternate}
+.video-overlay{z-index:1;background:linear-gradient(180deg,rgba(3,7,11,.74),rgba(3,7,11,.54) 48%,rgba(3,7,11,.84))}
+.video-section .hero-copy,.video-section .chapter-copy,.video-section .final-inner{color:var(--text)}
+.video-section .hero h1,.video-section .chapter-copy h2,.video-section .final-inner h2{color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.32)}
+.video-section .lede,.video-section .chapter-copy p,.video-section .final-inner p{color:rgba(237,242,247,.78)}
+.video-section .terminal{background:rgba(5,8,12,.58);border-color:rgba(255,255,255,.14);backdrop-filter:blur(10px)}
+.video-section .stack-panel{border-color:rgba(255,255,255,.2)}
+.video-section .stack-row{border-color:rgba(255,255,255,.14);background:rgba(0,0,0,.08)}
+.video-section .project-showcase .showcase-card{background:rgba(7,11,16,.58);border-color:rgba(255,255,255,.14);backdrop-filter:blur(10px)}
+.video-section .chapter-number{color:rgba(255,255,255,.13)}
+@keyframes video-drift{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.08) translate3d(-1%,1%,0)}}
+@media (prefers-reduced-motion:reduce){
+  .bg-video{animation:none;transform:scale(1.04)}
+}
+@media (max-width:700px){
+  .video-overlay{background:linear-gradient(180deg,rgba(3,7,11,.80),rgba(3,7,11,.62),rgba(3,7,11,.88))}
+  .bg-video{object-position:center}
+}
