@@ -427,3 +427,9 @@ a{color:var(--info);text-decoration:none}
   .video-overlay{background:linear-gradient(180deg,rgba(3,7,11,.80),rgba(3,7,11,.62),rgba(3,7,11,.88))}
   .bg-video{object-position:center}
 }
+
+.bg-media{background:
+  radial-gradient(700px 500px at 72% 42%,rgba(121,184,255,.10),transparent 58%),
+  radial-gradient(600px 420px at 18% 70%,rgba(70,211,105,.07),transparent 58%),
+  linear-gradient(135deg,#05080c 0%,#0b1118 55%,#05080c 100%)}
+.bg-video.video-unavailable{display:none}
