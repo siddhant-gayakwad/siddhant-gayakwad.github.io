@@ -238,3 +238,89 @@ a{color:var(--info);text-decoration:none}
   .hero-ctas .btn{width:100%}
   .contact-list .k{min-width:62px}
 }
+
+
+/* ---------- Cinematic scrolling / reveal motion ---------- */
+@media (prefers-reduced-motion: no-preference){
+  .site-main > section,
+  .site-main > .page-head,
+  .site-main > .prose{
+    view-timeline-name: --section-reveal;
+    view-timeline-axis: block;
+    animation: section-reveal linear both;
+    animation-timeline: --section-reveal;
+    animation-range: entry 0% cover 28%;
+  }
+
+  .card,
+  .yaml-card,
+  .badge{
+    opacity: 0;
+    transform: translateY(24px) scale(.985);
+    transition:
+      opacity .7s cubic-bezier(.22,1,.36,1),
+      transform .7s cubic-bezier(.22,1,.36,1),
+      border-color .2s ease,
+      background .2s ease,
+      box-shadow .2s ease;
+  }
+
+  .card.is-visible,
+  .yaml-card.is-visible,
+  .badge.is-visible{
+    opacity: 1;
+    transform: none;
+  }
+
+  .cards .card:nth-child(2){transition-delay:.07s}
+  .cards .card:nth-child(3){transition-delay:.14s}
+  .cards .card:nth-child(4){transition-delay:.21s}
+
+  .hero .terminal{
+    animation: hero-float 7s ease-in-out infinite;
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:18px;
+    width:1px;
+    height:42px;
+    background:linear-gradient(to bottom,transparent,var(--text-faint));
+    opacity:.55;
+    animation: scroll-hint 2.4s ease-in-out infinite;
+  }
+
+  .hero{position:relative}
+}
+
+@keyframes section-reveal{
+  from{opacity:.25;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes hero-float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+@keyframes scroll-hint{
+  0%,100%{transform:translateY(-5px);opacity:.2}
+  50%{transform:translateY(5px);opacity:.65}
+}
+
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:100;
+  width:100%;
+  height:2px;
+  transform-origin:left center;
+  transform:scaleX(0);
+  background:linear-gradient(90deg,var(--success),var(--info));
+  pointer-events:none;
+}
+
+@media (max-width:700px){
+  .hero::after{display:none}
+}
