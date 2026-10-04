@@ -5,7 +5,13 @@ title: Home
 
 <div class="home-stage">
 
-  <section class="hero full-screen chapter" id="home">
+  <section class="video-section hero full-screen chapter" id="home">
+    <div class="bg-media">
+      <video class="bg-video" autoplay muted loop playsinline preload="metadata" poster="{{ '/assets/images/headshot.png' | relative_url }}">
+        <source src="{{ '/assets/video/hero.mp4' | relative_url }}" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-overlay"></div>
     <div class="hero-copy">
       <span class="hero-eyebrow"><span class="dot"></span> open to new opportunities</span>
       <h1>Siddhant Gayakwad<br>builds the <span class="accent">pipeline</span><br>behind the product.</h1>
@@ -35,7 +41,13 @@ title: Home
     <a class="chapter-cue" href="#stack"><span></span> scroll to explore</a>
   </section>
 
-  <section class="full-screen chapter split-chapter" id="stack">
+  <section class="video-section full-screen chapter split-chapter" id="stack">
+    <div class="bg-media">
+      <video class="bg-video" autoplay muted loop playsinline preload="metadata">
+        <source src="{{ '/assets/video/stack.mp4' | relative_url }}" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-overlay"></div>
     <div class="chapter-number">01</div>
     <div class="chapter-copy">
       <span class="section-tag">stack.yml</span>
@@ -50,7 +62,13 @@ title: Home
     </div>
   </section>
 
-  <section class="full-screen chapter projects-chapter" id="projects">
+  <section class="video-section full-screen chapter projects-chapter" id="projects">
+    <div class="bg-media">
+      <video class="bg-video" autoplay muted loop playsinline preload="metadata">
+        <source src="{{ '/assets/video/projects.mp4' | relative_url }}" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-overlay"></div>
     <div class="chapter-number">02</div>
     <div class="chapter-copy">
       <span class="section-tag">selected work</span>
@@ -77,7 +95,13 @@ title: Home
     </div>
   </section>
 
-  <section class="full-screen chapter final-chapter" id="contact">
+  <section class="video-section full-screen chapter final-chapter" id="contact">
+    <div class="bg-media">
+      <video class="bg-video" autoplay muted loop playsinline preload="metadata">
+        <source src="{{ '/assets/video/contact.mp4' | relative_url }}" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-overlay"></div>
     <div class="chapter-number">03</div>
     <div class="final-inner">
       <span class="section-tag">next deployment</span>
