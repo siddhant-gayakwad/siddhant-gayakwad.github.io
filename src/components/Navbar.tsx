@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { Menu, X, ArrowUpRight, Download } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Download, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
   activeSection: string;
+  theme: 'light' | 'dark';
+  onToggleTheme: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, theme, onToggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -47,7 +49,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         height: 'var(--nav-height)',
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: isScrolled ? 'rgba(245, 245, 243, 0.92)' : 'var(--bg-primary)',
+        backgroundColor: isScrolled ? 'var(--nav-surface)' : 'var(--bg-primary)',
         backdropFilter: isScrolled ? 'blur(16px)' : 'none',
         WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
         borderBottom: isScrolled ? '1px solid var(--border-light)' : '1px solid transparent',
@@ -214,6 +216,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             <span>Resume</span>
             <ArrowUpRight size={15} />
           </a>
+
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={onToggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-pressed={theme === 'dark'}
+            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {theme === 'dark' ? <Sun size={18} strokeWidth={1.8} /> : <Moon size={18} strokeWidth={1.8} />}
+          </button>
 
           {/* Mobile Menu Toggle Button */}
           <button
