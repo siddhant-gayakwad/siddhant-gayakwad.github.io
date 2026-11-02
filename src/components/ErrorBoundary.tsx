@@ -30,6 +30,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     if (this.state.hasError) {
       return (
         <main
+          data-app-error="true"
           role="alert"
           style={{
             minHeight: '100vh',
