@@ -12,8 +12,37 @@ import { Blog } from './components/Blog';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
+type Theme = 'light' | 'dark';
+
+const getInitialTheme = (): Theme => {
+  if (typeof document !== 'undefined') {
+    return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  }
+  return 'light';
+};
+
 export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+
+  const toggleTheme = () => {
+    setTheme((current) => {
+      const next: Theme = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try {
+        window.localStorage.setItem('sg-portfolio-theme', next);
+      } catch {
+        // Theme still changes for this session when storage is unavailable.
+      }
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = theme === 'dark' ? '#0B0F14' : '#F5F5F3';
+  }, [theme]);
 
   useEffect(() => {
     const sections = ['home', 'about', 'skills', 'projects', 'experience', 'certifications', 'community', 'blog', 'contact'];
@@ -41,7 +70,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="portfolio-app" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Navbar activeSection={activeSection} />
+      <Navbar activeSection={activeSection} theme={theme} onToggleTheme={toggleTheme} />
       <main style={{ flex: 1 }}>
         <Hero />
         <About />
