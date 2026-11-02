@@ -322,3 +322,166 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* --------------------------------------------------------------------------
+   Theme system — light is the default; dark is enabled by html[data-theme].
+   -------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+  --nav-surface: rgba(245, 245, 243, 0.92);
+  --surface-raised: #FFFFFF;
+  --surface-soft: #F0F0ED;
+  --text-inverted: #FFFFFF;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-primary: #0B0F14;
+  --bg-secondary: #121922;
+  --bg-dark: #05080C;
+  --bg-dark-card: #17212B;
+
+  --text-primary: #F4F7FA;
+  --text-secondary: #A9B4C0;
+  --text-muted: #788592;
+  --text-on-dark: #F4F7FA;
+  --text-on-dark-muted: #9AA6B2;
+
+  --border-light: rgba(255, 255, 255, 0.13);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.14);
+
+  --accent-green: #46D369;
+  --accent-green-hover: #62E27F;
+  --accent-green-soft: rgba(70, 211, 105, 0.12);
+  --accent-green-glow: rgba(70, 211, 105, 0.22);
+
+  --nav-surface: rgba(11, 15, 20, 0.92);
+  --surface-raised: #151D27;
+  --surface-soft: #101720;
+  --text-inverted: #0B0F14;
+
+  background: var(--bg-primary);
+}
+
+html[data-theme="dark"] body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .editorial-card {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-light) !important;
+  color: var(--text-primary);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+}
+
+html[data-theme="dark"] .editorial-card:hover {
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.28);
+}
+
+html[data-theme="dark"] [style*="background-color: rgb(255, 255, 255)"],
+html[data-theme="dark"] [style*="background-color: #FFFFFF"],
+html[data-theme="dark"] [style*="background-color: #fff"] {
+  background-color: var(--surface-raised) !important;
+  border-color: var(--border-light) !important;
+}
+
+html[data-theme="dark"] [style*="background-color: rgba(255, 255, 255, 0.65)"] {
+  background-color: rgba(255, 255, 255, 0.045) !important;
+}
+
+html[data-theme="dark"] [style*="color: rgb(23, 23, 23)"],
+html[data-theme="dark"] [style*="color: #171717"] {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] .btn-green {
+  background-color: #F4F7FA;
+  color: #0B0F14;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+html[data-theme="dark"] .btn-primary:hover,
+html[data-theme="dark"] .btn-green:hover {
+  background-color: #DDE7EF;
+  color: #0B0F14;
+}
+
+html[data-theme="dark"] .btn-outline {
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+html[data-theme="dark"] .btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+html[data-theme="dark"] .pill-tag {
+  background-color: var(--surface-soft);
+  color: var(--text-secondary);
+  border-color: var(--border-light);
+}
+
+html[data-theme="dark"] .pill-tag[style*="background-color: rgb(23, 23, 23)"] {
+  background-color: #F4F7FA !important;
+  border-color: #F4F7FA !important;
+  color: #0B0F14 !important;
+}
+
+html[data-theme="dark"] .code-badge {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #F4F7FA;
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: transform 0.2s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-green);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 3px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #35414D;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #526171;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle {
+    transition: none;
+  }
+}
