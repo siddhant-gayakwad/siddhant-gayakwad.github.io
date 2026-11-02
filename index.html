@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem('sg-portfolio-theme');
+        } catch (error) {
+          theme = null;
+        }
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <style>
+      html[data-theme="dark"] #root > div[style*="background:#F5F5F3"] {
+        background: #0B0F14 !important;
+        color: #F4F7FA !important;
+      }
+    </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Siddhant Gayakwad — DevOps Engineer specializing in AWS Cloud, Kubernetes, Docker, CI/CD automation, and scalable cloud infrastructure." />
