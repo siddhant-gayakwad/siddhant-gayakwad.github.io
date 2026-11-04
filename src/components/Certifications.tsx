@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { certificationsData, personalInfo } from '../data/portfolioData';
 import { Award, ExternalLink, Sparkles, Compass, CheckCircle, ShieldCheck, BadgeCheck } from 'lucide-react';
 
 export const Certifications: React.FC = () => {
+  const [motionAllowed, setMotionAllowed] = useState(false);
+
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setMotionAllowed(!preference.matches);
+    const handleChange = (event: MediaQueryListEvent) => setMotionAllowed(!event.matches);
+    preference.addEventListener('change', handleChange);
+    return () => preference.removeEventListener('change', handleChange);
+  }, []);
   const credentials = certificationsData.filter(
     (c) => c.status === 'achieved' && c.category === 'certification'
   );
@@ -321,6 +330,30 @@ export const Certifications: React.FC = () => {
                         >
                           Official Certificate in Hand · Valid thru 2029
                         </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {isSaa && (
+                    <div className="aws-celebration-row">
+                      <div className="aws-celebration-media">
+                        <video
+                          autoPlay={motionAllowed}
+                          muted
+                          loop
+                          playsInline
+                          preload="none"
+                          poster="/assets/images/aws-saa-poster.jpg"
+                          aria-label="Original screen recording celebrating the AWS Solutions Architect Associate badge"
+                        >
+                          <source src="/assets/video/aws-saa-celebration.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                      <div className="aws-celebration-copy">
+                        <span className="aws-celebration-kicker">ORIGINAL ACHIEVEMENT VIDEO</span>
+                        <strong>One more milestone unlocked.</strong>
+                        <span>A short moment from the day I earned my AWS Solutions Architect – Associate certification.</span>
+                        {!motionAllowed && <span className="aws-celebration-still">Motion reduced · Showing original video frame</span>}
                       </div>
                     </div>
                   )}
